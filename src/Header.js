@@ -3,12 +3,15 @@ import styled  from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
         <Container>
             <HeaderLogo>
-                <img src={'https://i.imgur.com/7I9Was5.png'}/>
+                <Link to="/">
+                    <img src={'https://i.imgur.com/7I9Was5.png'}/>  
+                </Link>
             </HeaderLogo>
             <HeaderOptionAddress>
                 <LocationOnIcon/>
@@ -30,15 +33,19 @@ function Header() {
                     <OptionLineOne>Hello Folaranmi,</OptionLineOne>
                     <OptionLineTwo>Account & Lists</OptionLineTwo>
                 </HeaderOption>
+
                 <HeaderOption>
                     <OptionLineOne>Returns</OptionLineOne>
                     <OptionLineTwo>& Orders</OptionLineTwo>
                 </HeaderOption>
 
                 <HeaderOptionCart>
-                    <ShoppingBasketIcon/>
-                    <CartCount>4</CartCount>
+                    <Link to="/cart">
+                        <ShoppingBasketIcon/>
+                        <CartCount>4</CartCount>
+                    </Link>
                 </HeaderOptionCart>
+
             </HeaderNavItems>
         </Container>
     )
@@ -109,8 +116,13 @@ const HeaderOption = styled.div`
 `
 const HeaderOptionCart = styled.div`
     display: flex;
-    align-items: center;
-    padding: 0 9px 0 0;
+    a{
+        display: flex;
+        align-items: center;
+        padding: 0 9px 0 0;
+        color: #ffffff;
+        text-decoration: none;
+    }
 `
 const CartCount = styled.div`
     padding: 0 0 0 6px;
